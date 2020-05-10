@@ -1,0 +1,7 @@
+import Axios from 'axios';
+
+
+export default Axios.create({
+  baseURL: 'https://api.covid19api.com',
+
+})
