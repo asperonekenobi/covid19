@@ -33,6 +33,8 @@ function Detailed() {
                                                   key={ country.Slug }>{ country.Country }</MenuItem> ) }
 
           </Select>
+          <div>
+          </div>
           { countryData ?
                 <Chart data={ countryData } />
                 : null }

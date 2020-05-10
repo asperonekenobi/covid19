@@ -2,8 +2,11 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 
 function Chart(props) {
+  const arrConfirmed = props.data.confirmed;
+
   const chartData = {
           labels: props.data.labels,
+          newConfirmed: arrConfirmed[arrConfirmed.length-1] - arrConfirmed[arrConfirmed.length-2],
           datasets: [
             {
               label: 'Confirmed',
@@ -12,7 +15,7 @@ function Chart(props) {
               borderWidth: 1,
               hoverBackgroundColor: 'rgba(0,0,255,0.4)',
               hoverBorderColor: 'rgba(0,0,255,1)',
-              data: props.data.confirmed,
+              data: arrConfirmed,
             },
             {
               label: 'Deaths',
@@ -38,7 +41,8 @@ function Chart(props) {
 
   return (
         <div>
-          <h2>Line Example</h2>
+          <h2>Statistics</h2>
+          <h4>New confirmed: +{chartData.newConfirmed}</h4>
           <Line data={ chartData } />
         </div>
   );
